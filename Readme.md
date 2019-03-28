@@ -19,14 +19,14 @@ Criticisms are embedded in comments throughout the project. The UsersController.
 * Much more unit testing
 * Support/utilization of http status codes (on internal exceptions thrown)
 * Certain items can be better expressed via custom data types (ex: name)
-* Seperate the exposed models and datatypes more
+* Seperate the exposed models and datatypes - I really love readonly/const properties, but data model bindings require empty constructors + get;set; enabled props; it would be much nicer if the gui models were better seperated with the actual logic units
 
 ## API
 ### Get a LIST of users by name
 ```
 HTTP Verb:	GET 
 URL:		flughafen/api/v1/users/names/{name}
-param:		{name} is name of user desired; case mATterS
+param:		{name} = name of user desired; case mATterS; exact match required
 
 yields:		LIST of User objects matching that name (including userIds)
 errors:		500 + json packet with message + stacktrace on error
@@ -38,7 +38,7 @@ example:	flughafen/api/v1/users/names/lord voldemort -> list of user models, wit
 ```
 HTTP Verb:	GET 
 URL:		flughafen/api/v1/users/{userId}
-param:		{userId} is unique numeric identifier of user desired; you can find this via names func (see next)
+param:		{userId} = unique numeric identifier of user desired; you can find this via names func (see previous)
 
 yields:		json model of User object matching that id
 errors:		500 + json packet with message + stacktrace on error
@@ -50,7 +50,7 @@ example:	flughafen/api/v1/users/1 -> user model for user id=1
 ```
 HTTP Verb:	GET 
 URL:		flughafen/api/v1/users/{userId}/favs
-param:		{userId} is unique numeric identifier of user desired
+param:		{userId} = unique numeric identifier of user desired
 
 yields:		LIST of Airport objects favourited by the user
 errors:		500 + json packet with message + stacktrace on error
@@ -62,8 +62,8 @@ example:	flughafen/api/v1/users/2/favs -> list favourite airports for user with 
 ```
 HTTP Verb:	GET 
 URL:		flughafen/api/v1/users/{userId}/favs/{favnum}
-param:		{userId} is unique numeric identifier of user desired
-		{favnum} is 0 based index of favourites, from 0-9
+param:		{userId} = unique numeric identifier of user desired
+		{favnum} = 0 based index of favourites, from 0-9
 		
 yields:		Favorited Airport object
 errors:		500 + json packet with message + stacktrace on error
@@ -76,8 +76,8 @@ example:	flughafen/api/v1/users/2/favs/0 ->  favourite airport # 0 for user with
 ```
 HTTP Verb:	POST 
 URL:		flughafen/api/v1/users/{userId}/{airportCode}
-param:		{userId} is unique numeric identifier of user desired
-		{airportCode} is the Code assigned by FAA to airports (ex: IAD for Dulles International) 
+param:		{userId} = unique numeric identifier of user desired
+		{airportCode} = the IATA code assigned to airports (ex: IAD for Dulles International) ; see Airports section below
 
 yields:		HTTP 201 on success
 errors:		500 + json packet with message + stacktrace on error
@@ -107,7 +107,7 @@ example:	flughafen/api/v1/airports
 ```
 HTTP Verb:	GET 
 URL:		flughafen/api/v1/weather/{airportCode}
-param:		{airportCode} is the Code assigned by FAA to airports (ex: IAD for Dulles International)
+param:		{airportCode} = IATA airport code (ex: IAD for Dulles International)
 
 yields:		WeatherReport object containing current weather conditions
 errors:		500 + json packet with message + stacktrace on error
@@ -119,7 +119,7 @@ example:	flughafen/api/v1/weather/iad-> get simple weather for Dulles Internatio
 ```
 HTTP Verb:	GET 
 URL:		flughafen/api/v1/weather/{airportCode}/detailed
-param:		{airportCode} is the Code assigned by FAA to airports (ex: IAD for Dulles International)
+param:		{airportCode} = IATA airport code (ex: IAD for Dulles International)
 
 yields:		OpinionatedWeatherReport object containing current weather conditions
 errors:		500 + json packet with message + stacktrace on error
@@ -132,17 +132,17 @@ example:	flughafen/api/v1/weather/iad/detailed-> get advanced weather for Dulles
 ```
 HTTP Verb:	GET 
 URL:		flughafen/api/v1/users/{userId}/favs/{favnum}/weather
-param:		{userId} is unique numeric identifier of user desired
-			{favnum} is 0 based index of favourites, from 0-9
+param:		{userId} = unique numeric identifier of user desired
+		{favnum} = 0 based index of favourites, from 0-9
 
 yields:		WeatherReport object containing current weather conditions
 errors:		500 + json packet with message + stacktrace on error
-			index not found exception on favs out of bounds error
+		index not found exception on favs out of bounds error
 
 example:	flughafen/api/v1/users/2/favs/0/weather -> simple weather for favourited airport # 0 for user with uid 2
 ```
 
-*If you want the opinionated version, simply swap 'weather' with 'advanceWeather':*
+*If you want the opinionated version, simply swap 'weather' with 'advWeather':*
 ```
-flughafen/api/v1/users/2/favs/0/advanceWeather
+flughafen/api/v1/users/2/favs/0/advWeather
 ```
