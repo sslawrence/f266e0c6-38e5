@@ -7,8 +7,10 @@ namespace flughafen.models
 {
     public class Favorite
     {
-        public int Number { get; }
-        public Airport Airport { get; }
+        public int Number { get; set; }
+        public Airport Airport { get; set; }
+
+        internal Favorite() { } //needed for binding
 
         internal Favorite(int num, Airport airport)
         {

@@ -7,9 +7,11 @@ namespace flughafen.models
 {
     public class OpionatedWeatherReport
     {
-        public WeatherReport Conditions { get; }
-        public ClothingTips DressRecommendations { get; }
-        public TurbulenceReport FlightConditions { get; }
+        public WeatherReport Conditions { get; set; }
+        public ClothingTips DressRecommendations { get; set; }
+        public TurbulenceReport FlightConditions { get; set; }
+
+        internal OpionatedWeatherReport() { }  //model binding requirement
 
         internal OpionatedWeatherReport(weather.Report report)
         {

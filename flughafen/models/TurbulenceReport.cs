@@ -10,11 +10,13 @@ namespace flughafen.models
 
     public class TurbulenceReport
     {
-        public bool ShouldCheckForFlightDelays { get; }
-        public string Why { get; }
+        public bool ShouldCheckForFlightDelays { get; set; }
+        public string Why { get; set; }
 
         readonly bool _isWindy;
         readonly bool _isVisibilityImpaired;
+
+        internal TurbulenceReport() { } //needed for json binding
 
         internal TurbulenceReport(weather.Report forecast)
         {

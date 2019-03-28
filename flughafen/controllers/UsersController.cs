@@ -54,9 +54,9 @@ namespace flughafen.controllers
 
         [HttpGet]
         [Route("{userId}/favs")]
-        public IEnumerable<models.Airport> GetAllFavorites(int userId)
+        public IEnumerable<models.Favorite> GetAllFavorites(int userId)
         {
-            return _users.GetUserById(userId).FavAirports;
+            return _users.GetUserById(userId).Favorites;
         }
 
         [HttpGet]

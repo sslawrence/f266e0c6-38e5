@@ -139,7 +139,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59500</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59500/flughafen</IISUrl>
+          <IISUrl>http://localhost:59500/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

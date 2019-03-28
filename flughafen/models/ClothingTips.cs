@@ -10,6 +10,8 @@ namespace flughafen.models
         public bool WearACoat { get; set; }
         public bool TakeAnUmbrella { get; set; }
 
+        internal ClothingTips() { } //needed for json binding
+         
         internal ClothingTips(weather.Report report)
         {
             TakeAnUmbrella = isItRaining(report.Status);

@@ -12,6 +12,8 @@ namespace flughafen.models
         public string Temperature { get; set; }
         public string Status { get; set; }
 
+        internal WeatherReport() { }
+
         internal WeatherReport(weather.Report forecast)
         {
             Location = forecast.Location.ToString();

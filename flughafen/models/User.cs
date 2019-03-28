@@ -8,15 +8,16 @@ namespace flughafen.models
 {
     public class User
     {
-        public int Id { get; }
-        public string Name { get; } //would recommend making this own type
+        public int Id { get; set; }
+        public string Name { get; set; } //would recommend making this own type
+        public IList<Favorite> Favorites => _favorites.AsReadOnly();
 
-        public IReadOnlyCollection<Favorite> Favorites => _favorites.AsReadOnly();
-        internal IReadOnlyCollection<Airport> FavAirports => _favorites.Select(f => f.Airport).ToList().AsReadOnly();
+        internal IList<Airport> FavAirports => _favorites.Select(f => f.Airport).ToList().AsReadOnly();
+        private readonly List<Favorite> _favorites;
 
-        readonly List<Favorite> _favorites;
+        internal User() { } //needed for json binding apparently
 
-        public User(int id, string name)
+        internal User(int id, string name)
         {
             _favorites = new List<Favorite>();
 
