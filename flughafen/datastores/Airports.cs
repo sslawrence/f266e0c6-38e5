@@ -17,7 +17,7 @@ namespace flughafen.datastores
             new models.Airport( "TUS", "Tucson International Airport",       new GeoCoordinate(32.116112, -110.941109))
         };
 
-        public ReadOnlyCollection<models.Airport> GetAllAirports() => _airports.AsReadOnly();
+        public IReadOnlyCollection<models.Airport> GetAllAirports => _airports;
 
         public models.Airport GetAirportByCode(string code)
         {
@@ -27,6 +27,16 @@ namespace flughafen.datastores
             if (match == null)
             {
                 throw new DatastoreException($"no airport was found with code '{code}'");
+            }
+
+            return match;
+        }
+        public models.Airport GetAirportByName(string name)
+        {
+            var match = _airports.FirstOrDefault(a => a.Name.Contains(name));
+            if (match == null)
+            {
+                throw new DatastoreException($"no airport was found with name '{name}; case matters!'");
             }
 
             return match;

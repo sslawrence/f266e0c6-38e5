@@ -22,16 +22,16 @@ namespace flughafen.controllers
 
         [HttpGet]
         [Route("")]
-        public IEnumerable<models.Airport> Get()
+        public IEnumerable<models.Airport> GetAll() //for some reason, chrome fails this query, but it work in Postman/Fiddler
         {
-            return _airports.GetAllAirports();
+            return _airports.GetAllAirports;
         }
 
         [HttpGet]
-        [Route("{code}")]
-        public models.Airport GetByCode(string code)
+        [Route("{airportName}")]
+        public models.Airport GetByName(string airportName)
         {
-            return _airports.GetAirportByCode(code);
+            return _airports.GetAirportByName(airportName);
         }
     }
 }

@@ -12,7 +12,8 @@ namespace flughafen.controllers
     {
         /*
          * Criticisms: 
-         *  I don't like this user controller doing stuff related to airports/weather, but it may make the url a bit more user friendly to clients
+         *  I don't like this user controller doing stuff related to airports/weather, but it may make the url a bit more user friendly/predictable to clients.
+         *  It may be better to delete the weather funcs in this class, and just leave the WeatherController handle weather activities by itself.
 
          *  I'm also throwing raw exceptions from the business logic (i.e: they will return http error code 500)
          *  It'd be ideal to have the proper http error code bound to the exceptions; that is needed for RESTfulness

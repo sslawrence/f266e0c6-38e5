@@ -6,10 +6,14 @@ using System.Device.Location;
 
 namespace flughafen.models
 {
+    [System.Diagnostics.DebuggerDisplay("code = {Code}, name = {Name}")]
     public class Airport
     {
-        public string Code { get; } 
-        public string Name { get; } 
+        /// <summary> 3 letter, IATA airport code(ex: IAD) </summary>
+        public string Code { get; }
+        /// <summary> Name of airport (ex: Dulles Washgington International) </summary>
+        public string Name { get; }
+        /// <summary> Lat and Long of the airport.</summary>
         public string Coordinates => Location.ToString();
         
         //don't like exposing this to json serializer, since it has extra stuff we don't want exposed; normally this would be taken care of by having separate data and model classes
