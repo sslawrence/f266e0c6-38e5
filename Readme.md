@@ -19,7 +19,7 @@ Criticisms are embedded in comments throughout the project. The UsersController.
 * Much more unit testing
 * Support/utilization of http status codes (on internal exceptions thrown)
 * Certain items can be better expressed via custom data types (ex: name)
-* Seperate the exposed models and datatypes - I really love readonly/const properties, but data model bindings require empty constructors + get;set; enabled props; it would be much nicer if the gui models were better seperated with the actual logic units
+* Seperate the exposed models and datatypes - I really love readonly/const properties, but data model bindings require empty constructors & get;set; enabled props. It would be much nicer if the gui models were better seperated from the actual logic units.
 
 ## API
 ### Get a LIST of users by name
@@ -112,7 +112,7 @@ param:		{airportCode} = IATA airport code (ex: IAD for Dulles International)
 yields:		WeatherReport object containing current weather conditions
 errors:		500 + json packet with message + stacktrace on error
 
-example:	flughafen/api/v1/weather/iad-> get simple weather for Dulles International
+example:	flughafen/api/v1/weather/iad -> get simple weather for Dulles International
 ```
 
 **or a more opinionated one:**
@@ -124,7 +124,7 @@ param:		{airportCode} = IATA airport code (ex: IAD for Dulles International)
 yields:		OpinionatedWeatherReport object containing current weather conditions
 errors:		500 + json packet with message + stacktrace on error
 
-example:	flughafen/api/v1/weather/iad/detailed-> get advanced weather for Dulles International
+example:	flughafen/api/v1/weather/iad/detailed -> get advanced weather for Dulles International
 ```
 
 **You can also directly get the weather from the user's favs list:**
