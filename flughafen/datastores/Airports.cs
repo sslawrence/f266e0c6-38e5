@@ -11,10 +11,10 @@ namespace flughafen.datastores
     {
         readonly static List<models.Airport> _airports = new List<models.Airport>()
         {
-            new models.Airport( "IAD", "Washington Dulles International", new GeoCoordinate(38.9532, -77.4477)),
-            new models.Airport( "BWI", "BWI",                             new GeoCoordinate(39.1774, -76.6683)),
-            new models.Airport( "DFW", "Dallas Fort Worth International", new GeoCoordinate(32.897480, -97.040443)),
-            new models.Airport( "TUS", "Tucson International Airport",    new GeoCoordinate(32.116112, -110.941109))
+            new models.Airport( "IAD", "Washington Dulles International",    new GeoCoordinate(38.9532, -77.4477)),
+            new models.Airport( "BWI", "Baltimore Washington International", new GeoCoordinate(39.1774, -76.6683)),
+            new models.Airport( "DFW", "Dallas Fort Worth International",    new GeoCoordinate(32.897480, -97.040443)),
+            new models.Airport( "TUS", "Tucson International Airport",       new GeoCoordinate(32.116112, -110.941109))
         };
 
         public ReadOnlyCollection<models.Airport> GetAllAirports() => _airports.AsReadOnly();
