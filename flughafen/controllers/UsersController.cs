@@ -13,10 +13,12 @@ namespace flughafen.controllers
         /*
          * Criticisms: 
          *  I don't like this user controller doing stuff related to airports/weather, but it may make the url a bit more user friendly/predictable to clients.
-         *  It may be better to delete the weather funcs in this class, and just leave the WeatherController handle weather activities by itself.
+         *  It may be better to delete the weather funcs in this class, and let the WeatherController handle weather activities by itself.
 
          *  I'm also throwing raw exceptions from the business logic (i.e: they will return http error code 500)
          *  It'd be ideal to have the proper http error code bound to the exceptions; that is needed for RESTfulness
+         *  
+         *  I'm also doing a bit more logic in this controller than perhaps I should; it may make sense to refac those out to allow for better testing
          *  
          *  There are a few more complaints but it's very nice weather outside right now and I don't want to be inside anymore :)
          * */
@@ -78,8 +80,8 @@ namespace flughafen.controllers
         }
 
         [HttpGet]
-        [Route("{userId}/favs/{favnum}/advanceWeather")]
-        public models.OpionatedWeatherReport GetAdvanceWeatherForFavNum(int userId, int favnum)
+        [Route("{userId}/favs/{favnum}/advWeather")]
+        public models.OpionatedWeatherReport GetAdvancedWeatherForFavNum(int userId, int favnum)
         {
             var user = _users.GetUserById(userId);
             var airport = user.GetByFavAirportByFavIndex(favnum);

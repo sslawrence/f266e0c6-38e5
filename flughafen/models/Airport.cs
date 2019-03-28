@@ -30,6 +30,5 @@ namespace flughafen.models
             Location = location;
             Coordinates = location.ToString();
         }
-
     }
 }

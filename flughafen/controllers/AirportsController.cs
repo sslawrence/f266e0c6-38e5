@@ -22,7 +22,7 @@ namespace flughafen.controllers
 
         [HttpGet]
         [Route("")]
-        public IEnumerable<models.Airport> GetAll() //for some reason, this query fails in chrome + ff, but it work in Postman/Fiddler
+        public IEnumerable<models.Airport> GetAll()
         {
             return _airports.GetAllAirports;
         }

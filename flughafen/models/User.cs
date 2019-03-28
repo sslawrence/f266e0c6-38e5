@@ -12,8 +12,7 @@ namespace flughafen.models
         public string Name { get; set; } //would recommend making this own type
         public IList<Favorite> Favorites => _favorites.AsReadOnly();
 
-        internal IList<Airport> FavAirports => _favorites.Select(f => f.Airport).ToList().AsReadOnly();
-        private readonly List<Favorite> _favorites;
+        readonly List<Favorite> _favorites;
 
         internal User() { } //needed for json binding apparently
 
