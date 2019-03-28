@@ -1,7 +1,7 @@
 
 
 
-#API Command Structure
+# API Command Structure
 
 
 ==get a user's profile via userId==
