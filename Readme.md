@@ -1,10 +1,35 @@
 
 
 
-# API Command Structure
+# Getting Started
+## Building
+In Visual Studio 2017 or greater, you can open up the the main flughafen.sln and build the solution directly from within.
 
+##### ToolSet
+Framework: Visual Studio 2017 - .NET Framework 4.6.1 - Language C#
 
-==get a user's profile via userId==
+##### Dependencies
+All project dependencies should be resolved automatically by nuget. The only external library used is NEWTOWNSOFT's json library.
+
+## Limitations/ Criticisms 
+
+# Design Rational
+The project uses .NET's Web API libraries to expose a RESTful(lish) (see criticisms) experience to potential clients. A set of Controllers and Models are used to expose the requested set of functions.
+
+Database: A small set of fake databases (in memory/static) are used to mock a set of users and airports.
+
+# API/
+
+### Get a LIST of users via name
+HTTP Verb:	GET 
+
+URL:		flughafen/api/v1/users/names/{name}
+
+param:		{name} is name of user desired; case mATterS
+yields:		LIST of User objects matching that name (including userIds)
+Errors:		500 + json packet with message + stacktrace on error
+
+### Get a user's profile via userId
 HTTP Verb:	GET 
 URL:		flughafen/api/v1/users/{userId}
 param:		{userId} is unique numeric identifier of user desired; you can find this via names func (see next)
@@ -13,12 +38,7 @@ Errors:		500 + json packet with message + stacktrace on error
 
 example:	flughafen/api/v1/users/1 -> model with user profile for martin schluss
 
-get a LIST of users via name
-HTTP Verb:	GET 
-URL:		flughafen/api/v1/users/names/{name}
-param:		{name} is name of user desired; case mATterS
-yields:		LIST of User objects matching that name (including userIds)
-Errors:		500 + json packet with message + stacktrace on error
+
 
 example:	flughafen/api/v1/users/names/lord voldemort -> list of user models, with an entry for lord voldemort's profile
 
