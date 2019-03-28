@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "flughafen", "flughafen\flughafen.csproj", "{B80DCE1B-7EDC-41D0-83AA-ABAEC7839BEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "flughafen.tests", "flughafen.tests\flughafen.tests.csproj", "{190C9020-C733-4147-84CD-3EAAFACE253A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B80DCE1B-7EDC-41D0-83AA-ABAEC7839BEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B80DCE1B-7EDC-41D0-83AA-ABAEC7839BEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B80DCE1B-7EDC-41D0-83AA-ABAEC7839BEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B80DCE1B-7EDC-41D0-83AA-ABAEC7839BEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{190C9020-C733-4147-84CD-3EAAFACE253A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{190C9020-C733-4147-84CD-3EAAFACE253A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{190C9020-C733-4147-84CD-3EAAFACE253A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{190C9020-C733-4147-84CD-3EAAFACE253A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77B16D9A-57D0-40BC-B558-59A1681EA8DD}
+	EndGlobalSection
+EndGlobal
