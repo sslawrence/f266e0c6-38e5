@@ -42,8 +42,9 @@ Errors:		500 + json packet with message + stacktrace on error
 
 example:	flughafen/api/v1/users/1 -> model with user profile for martin schluss
 ```
-```
+
 ### Get a LIST of a user's favourite airports (which contain location data)
+```
 HTTP Verb:	GET 
 URL:		flughafen/api/v1/users/{userId}/favs
 param:		{userId} is unique numeric identifier of user desired
@@ -121,20 +122,3 @@ example:	flughafen/api/v1/users/2/favs/0/weather -> simple weather for favourite
 ```
 flughafen/api/v1/users/2/favs/0/advanceWeather
 ```
-
-get an extended weather report for current conditions for specified airport, with info on suggested dress, and possible flight issues
-HTTP Verb:	GET 
-URL:		flughafen/api/v1/{name}/{airportCode}/advanceWeather
-param:		{name} is name of user desired; case mATterS
-			{airportCode} is the Code assigned by FAA to airports (ex: IAD for Dulles International)
-yields:		WeatherReport object containing current weather conditions
-Errors:		500 + json packet with message + stacktrace on error
-
-example:	flughafen/api/v1/1/iad/advanceWeather-> get extended weather for user with id 1, containing an entry for airport iad
-
-
-
-
-
-
-
