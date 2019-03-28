@@ -1,11 +1,7 @@
 
 
 
-API guidelines
-root api url for v1: flughafen/api/v1/users
-all data in json format
-
-scenarios:
+#API Command Structure
 
 
 ==get a user's profile via userId==
